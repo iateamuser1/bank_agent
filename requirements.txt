@@ -1,0 +1,15 @@
+# Mock bank portals + UI launcher
+fastapi>=0.110
+uvicorn[standard]>=0.29
+jinja2>=3.1
+itsdangerous>=2.1          # SessionMiddleware signing
+python-multipart>=0.0.9    # form posts
+fpdf2>=2.7                 # statement PDF generation
+pyyaml>=6.0                # vault / config
+
+# Automation harness
+playwright>=1.45
+
+# Real Claude Opus on Azure AI Foundry (optional until creds are provided;
+# the harness runs in heuristic mode without it)
+anthropic>=0.39

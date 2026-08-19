@@ -1,0 +1,8 @@
+secrets/vault.yaml
+_mail/
+downloads/
+recipes/
+journal.jsonl
+results.csv
+__pycache__/
+*.pyc

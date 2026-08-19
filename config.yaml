@@ -1,0 +1,24 @@
+# Runtime configuration for the bank_agent system.
+# Non-secret knobs live here; secrets live in secrets/vault.yaml (gitignored).
+
+mail:
+  # local  -> banks write OTP emails to a local maildir; reader reads them (offline, deterministic)
+  # gmail  -> banks send via Gmail SMTP; reader reads via Gmail IMAP (needs a Gmail App Password)
+  backend: gmail
+  maildir: _mail                 # used by the 'local' backend
+  imap_host: imap.gmail.com
+  smtp_host: smtp.gmail.com
+  smtp_port: 465
+
+llm:
+  # heuristic -> no model calls (regex OTP, date-sorted latest statement, rule-based detection)
+  # azure     -> Claude Opus on Azure AI Foundry for the three hybrid judgement calls
+  backend: azure
+  model: ""                      # unused: the model id is read from secrets/vault.yaml (azure_foundry.model)
+
+banks:
+  host: 127.0.0.1
+  port: 8000                     # all 20 portals are served by one app under /bank/<id>/
+
+downloads_dir: downloads
+otp_ttl_seconds: 300
